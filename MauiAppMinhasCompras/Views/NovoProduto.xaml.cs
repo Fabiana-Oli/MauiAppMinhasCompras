@@ -18,10 +18,13 @@ public partial class NovoProduto : ContentPage
                 Descricao = txt_descricao.Text,
                 Quantidade = Convert.ToDouble(txt_quantidade.Text),
                 Preco = Convert.ToDouble(txt_preco.Text),
+                //salva a data escolhida pelo usuário
+                DataCadastro = dtp_data.Date ?? DateTime.Today
             };
 
             await App.Db.Insert(p);
             await DisplayAlert("Sucesso!", "Registro inserido", "OK");
+            await Navigation.PopAsync();
         }
 
         catch (Exception ex)

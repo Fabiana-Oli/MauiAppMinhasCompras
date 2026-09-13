@@ -12,6 +12,9 @@ namespace MauiAppMinhasCompras.Models
 
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
+
+        //campo para armazenar a data da compra
+        public DateTime DataCadastro { get; set; }
         public string Descricao 
         { 
             get => _descricao; 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppMinhasCompras.Views.Relatorio"
+             Title="Relatório">
+
+    <VerticalStackLayout Padding="20"
+                         Spacing="15">
+
+        <Label Text="Data inicial"
+               FontAttributes="Bold" />
+
+        <DatePicker x:Name="dtp_data_inicial"
+                    Format="dd/MM/yyyy" />
+
+        <Label Text="Data final"
+               FontAttributes="Bold" />
+
+        <DatePicker x:Name="dtp_data_final"
+                    Format="dd/MM/yyyy" />
+
+        <Button Text="Pesquisar"
+                Clicked="Button_Clicked" />
+
+        <ListView x:Name="lst_relatorio">
+
+            <ListView.Header>
+                <Grid ColumnDefinitions="*, 80, 80, 100">
+
+                    <Label Grid.Column="0"
+                           Text="Descrição"
+                           FontAttributes="Bold" />
+
+                    <Label Grid.Column="1"
+                           Text="Qnt"
+                           FontAttributes="Bold" />
+
+                    <Label Grid.Column="2"
+                           Text="Preço"
+                           FontAttributes="Bold" />
+
+                    <Label Grid.Column="3"
+                           Text="Data"
+                           FontAttributes="Bold" />
+
+                </Grid>
+            </ListView.Header>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+
+                    <ViewCell>
+
+                        <Grid ColumnDefinitions="*, 80, 80, 100">
+
+                            <Label Grid.Column="0"
+                                   Text="{Binding Descricao}" />
+
+                            <Label Grid.Column="1"
+                                   Text="{Binding Quantidade}" />
+
+                            <Label Grid.Column="2"
+                                   Text="{Binding Preco, StringFormat='{}{0:c}'}" />
+
+                            <Label Grid.Column="3"
+                                   Text="{Binding DataCadastro, StringFormat='{0:dd/MM/yyyy}'}" />
+
+                        </Grid>
+
+                    </ViewCell>
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
